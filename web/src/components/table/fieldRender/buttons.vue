@@ -12,7 +12,7 @@
                     :type="btn.type"
                     :loading="btn.loading && btn.loading(row, field)"
                     :disabled="btn.disabled && btn.disabled(row, field)"
-                    v-bind="btn.attr"
+                    v-bind="invokeTableContextDataFun(btn.attr, { row, field, cellValue: btn, column, index })"
                 >
                     <Icon v-if="btn.icon" :name="btn.icon" />
                     <div v-if="btn.text" class="text">{{ getTranslation(btn.text) }}</div>
@@ -34,7 +34,7 @@
                         :type="btn.type"
                         :loading="btn.loading && btn.loading(row, field)"
                         :disabled="btn.disabled && btn.disabled(row, field)"
-                        v-bind="btn.attr"
+                        v-bind="invokeTableContextDataFun(btn.attr, { row, field, cellValue: btn, column, index })"
                     >
                         <Icon v-if="btn.icon" :name="btn.icon" />
                         <div v-if="btn.text" class="text">{{ getTranslation(btn.text) }}</div>
@@ -44,9 +44,8 @@
                 <!-- 带确认框的按钮 -->
                 <el-popconfirm
                     v-if="btn.render == 'confirmButton' && ((btn.name == 'delete' && baTable.auth('del')) || btn.name != 'delete')"
-                    :loading="btn.loading && btn.loading(row, field)"
                     :disabled="btn.disabled && btn.disabled(row, field)"
-                    v-bind="btn.popconfirm"
+                    v-bind="invokeTableContextDataFun(btn.popconfirm, { row, field, cellValue: btn, column, index })"
                     @confirm="onButtonClick(btn)"
                 >
                     <template #reference>
@@ -64,7 +63,7 @@
                                     :type="btn.type"
                                     :loading="btn.loading && btn.loading(row, field)"
                                     :disabled="btn.disabled && btn.disabled(row, field)"
-                                    v-bind="btn.attr"
+                                    v-bind="invokeTableContextDataFun(btn.attr, { row, field, cellValue: btn, column, index })"
                                 >
                                     <Icon v-if="btn.icon" :name="btn.icon" />
                                     <div v-if="btn.text" class="text">{{ getTranslation(btn.text) }}</div>
@@ -88,7 +87,7 @@
                         :type="btn.type"
                         :loading="btn.loading && btn.loading(row, field)"
                         :disabled="btn.disabled && btn.disabled(row, field)"
-                        v-bind="btn.attr"
+                        v-bind="invokeTableContextDataFun(btn.attr, { row, field, cellValue: btn, column, index })"
                     >
                         <Icon v-if="btn.icon" :name="btn.icon" />
                         <div v-if="btn.text" class="text">{{ getTranslation(btn.text) }}</div>

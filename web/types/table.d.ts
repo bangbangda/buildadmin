@@ -10,7 +10,6 @@ import type {
     TableColumnCtx,
     TagProps,
 } from 'element-plus'
-import type { Mutable } from 'element-plus/es/utils'
 import type { Component, ComponentPublicInstance } from 'vue'
 import Icon from '/@/components/icon/index.vue'
 import Table from '/@/components/table/index.vue'
@@ -393,16 +392,16 @@ declare global {
         disabled?: (row: TableRow, field: TableColumn) => boolean
 
         /**
-         * 按钮是否在加载中（请返回布尔值）
+         * 按钮是否正在加载中（请返回布尔值）
          * @param row 当前行数据
          * @param field 当前列数据
          */
         loading?: (row: TableRow, field: TableColumn) => boolean
 
         /**
-         * 自定义 el-button 的其他属性
+         * 自定义 el-button 的其他属性（格式为属性 object 或一个返回属性 object 的函数）
          */
-        attr?: Partial<Mutable<ButtonProps>>
+        attr?: TableContextDataFun<ButtonProps>
 
         // 按钮 class
         class?: string
@@ -410,8 +409,8 @@ declare global {
         type: ButtonType
         // 按钮 icon 的名称
         icon: string
-        // 确认按钮的气泡确认框的属性（el-popconfirm 的属性）
-        popconfirm?: Partial<Mutable<PopconfirmProps>>
+        // 确认按钮的气泡确认框的属性（el-popconfirm 的属性，格式为属性 object 或一个返回属性 object 的函数）
+        popconfirm?: TableContextDataFun<PopconfirmProps>
         // 是否禁用 title 提示，此值通常由系统动态调整以确保提示的显示效果
         disabledTip?: boolean
     }
