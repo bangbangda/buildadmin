@@ -1,6 +1,6 @@
 <template>
     <div class="iframe-main" v-loading="state.loading">
-        <iframe :src="state.iframeSrc" :style="iframeStyle(35)" frameborder="0" height="100%" width="100%" id="iframe" @load="hideLoading"></iframe>
+        <iframe :src="state.iframeSrc" :style="iframeStyle(35)" style="border: none;"  height="100%" width="100%" id="iframe" @load="hideLoading"></iframe>
     </div>
 </template>
 
