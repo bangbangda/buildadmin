@@ -806,6 +806,10 @@ html.dark {
     .welcome {
         background-color: var(--ba-bg-color-overlay);
     }
+    .working-opt {
+        color: var(--el-text-color-primary);
+        background-color: var(--ba-border-color);
+    }
     .small-panel {
         background-color: var(--ba-bg-color-overlay);
         .small-panel-content {
