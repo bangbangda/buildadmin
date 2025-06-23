@@ -140,7 +140,7 @@
         </div>
 
         <Config />
-        <TerminalVue />
+        <Terminal />
     </div>
 </template>
 
@@ -152,7 +152,7 @@ import { useI18n } from 'vue-i18n'
 import Config from './config.vue'
 import { logout } from '/@/api/backend/index'
 import { postClearCache } from '/@/api/common'
-import TerminalVue from '/@/components/terminal/index.vue'
+import Terminal from '/@/components/terminal/index.vue'
 import { editDefaultLang } from '/@/lang'
 import router from '/@/router'
 import { useAdminInfo } from '/@/stores/adminInfo'

@@ -6,7 +6,7 @@
                     <Icon :color="config.getColorVal('menuColor')" :name="menu.meta?.icon ? menu.meta?.icon : config.layout.menuDefaultIcon" />
                     <span>{{ menu.meta?.title ? menu.meta?.title : $t('noTitle') }}</span>
                 </template>
-                <menu-tree :extends="{ ...props.extends, level: props.extends.level + 1 }" :menus="menu.children"></menu-tree>
+                <MenuTree :extends="{ ...props.extends, level: props.extends.level + 1 }" :menus="menu.children" />
             </el-sub-menu>
         </template>
         <template v-else>

@@ -1,5 +1,5 @@
 import { createVNode, render } from 'vue'
-import clickCaptchaConstructor from './index.vue'
+import ClickCaptchaConstructor from './index.vue'
 import { shortUuid } from '/@/utils/random'
 
 interface ClickCaptchaOptions {
@@ -23,7 +23,7 @@ interface ClickCaptchaOptions {
  */
 const clickCaptcha = (uuid: string, callback?: (captchaInfo: string) => void, options: ClickCaptchaOptions = {}) => {
     const container = document.createElement('div')
-    const vnode = createVNode(clickCaptchaConstructor, {
+    const vnode = createVNode(ClickCaptchaConstructor, {
         uuid,
         callback,
         ...options,
