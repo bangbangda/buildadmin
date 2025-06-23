@@ -65,7 +65,10 @@ const { t } = useI18n()
 const tableRef = useTemplateRef('tableRef')
 
 const optBtn = defaultOptButtons(['edit', 'delete'])
-optBtn[1].popconfirm!.title = t('routine.attachment.Files and records will be deleted at the same time Are you sure?')
+optBtn[1].popconfirm = {
+    ...optBtn[1].popconfirm,
+    title: t('routine.attachment.Files and records will be deleted at the same time Are you sure?'),
+}
 
 const baTable = new baTableClass(new baTableApi('/admin/routine.Attachment/'), {
     column: [
