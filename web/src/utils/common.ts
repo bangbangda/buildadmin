@@ -320,7 +320,7 @@ export const arrayFullUrl = (relativeUrls: string | string[], domain = '') => {
 export const timeFormat = (dateTime: string | number | null = null, fmt = 'yyyy-mm-dd hh:MM:ss') => {
     if (dateTime == 'none') return i18n.global.t('None')
     if (!dateTime) dateTime = Number(new Date())
-    if (dateTime.toString().length === 10) {
+    if (dateTime.toString().length === 10 && /^\d+$/.test(dateTime.toString())) {
         dateTime = +dateTime * 1000
     }
 
