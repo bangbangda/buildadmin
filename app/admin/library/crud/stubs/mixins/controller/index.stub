@@ -18,11 +18,11 @@
         list($where, $alias, $limit, $order) = $this->queryBuilder();
         $res = $this->model
             ->withJoin($this->withJoinTable, $this->withJoinType)
+            {%relationVisibleFields%}
             ->alias($alias)
             ->where($where)
             ->order($order)
             ->paginate($limit);
-        {%relationVisibleFields%}
 
         $this->success('', [
             'list'   => $res->items(),
